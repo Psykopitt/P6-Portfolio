@@ -500,6 +500,8 @@ const changeSubmitBtnColor = () => {
 
 // Fonction de validation d'image
 function validateImage(image) {
+    console.log("Taille de l'image:", image.size);
+    console.log("Type de l'image:", image.type);
     // Vérifier si une image a été sélectionnée
     if (!(image instanceof File)) {
         return "Veuillez ajouter une image";
@@ -512,7 +514,7 @@ function validateImage(image) {
     // Vérifier le type de l'image
     const allowedExtensions = ["image/jpeg", "image/png"]; // Types de fichiers autorisés
     if (!allowedExtensions.includes(image.type)) {
-        return "Veuillez sélectionner une image au format JPEG ou PNG.";
+        return "Veuillez sélectionner une image au format JPG ou PNG.";
     }
     // Si tout est valide, retourner true
     return true;
@@ -547,7 +549,7 @@ document.getElementById("photo").addEventListener("change", function (event) {
     // Vérifiez si un fichier a été sélectionné
     if (file) {
         // Vérifiez le type de fichier
-        if (file.type !== "image/jpg" && file.type !== "image/png") {
+        if (file.type !== "image/jpeg" && file.type !== "image/png") {
             // Créez un élément paragraphe pour afficher le message d'erreur
             const errorMessage = document.createElement("p");
             errorMessage.textContent =
